@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Test HTML Location Functionality</title>
+<script>
+ 5 If you get fed up with starting your server for every test, you can leave it running in another window. Just go
+to BitVise and hit the New Terminal Console to start a new terminal/command prompt. Then start the server
+there, and keep using the other terminal window for your coding
+5 of 5
+function trackLocation() {
+ if (navigator.geolocation) {
+ navigator.geolocation.watchPosition(showPosition);
+ } else {
+ document.getElementById('showLocation').innerHTML = "Geolocation is not supported by this browser.";
+ }
+}
+function showPosition(position) {
+ document.getElementById('showLocation').innerHTML = "Latitude: " + position.coords.latitude +
+ "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</head>
+<body>
+<b>This code will display your current location</b>
+<div id='showLocation'>Location will be displayed here</div>
+<button id='trackLocation' onclick='trackLocation()'>Click Me to Get Your Location</button>
+</body>
